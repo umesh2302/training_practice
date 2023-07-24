@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+    <head>
+    <link rel="shortcut icon" href="#">
+    <link rel ="stylesheet" href ="style.css" >
+    <title> "testing page" </title>
+    </head>
+    <body>
+      <div id = "main">
+      <h1> My first heading </h1>
+      <h2> my second heading</h2>
+      <p> my first paragraph</p>  
+      <p1> my second paragraph</p1>
+      <div><img src="India.png" /></div>
+      <div id = "window"> Name : <input /> </div>
+      <div class = "highligts" >DOBirth : <input type = "date" /> </div>
+      <button> save </button>
+      <a href = "http://www.oorjaa.tech">Learn More </a>
+      <script>
+        const KG_PER_POUND = 0.45
+        const METER_PER_INCH = 0.0254
+        let client = [
+        {
+          Name : 'Umesh',
+          Weight : 163 ,
+          Height : 67.7,
+        },
+        {
+          Name : 'Shilpi',
+          Weight : 133 ,
+          Height : 62.7,
+        }
+      ]
+        function getBMI (client) {
+          let WeightKg = client.Weight*KG_PER_POUND
+          let HeightMtr = client.Height*METER_PER_INCH
+          return WeightKg/HeightMtr/HeightMtr
+                }
+        for (j = 0; j < client.length ; j++) {
+        document.write(getBMI(client[j])  )
+        document.write("\n")
+        }
+         </script>
+    </div> 
+      
+    </body>
+    
+</html>

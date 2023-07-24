@@ -1,0 +1,15 @@
+h1 {color : green;}
+
+#main {
+    border : solid 11px green;
+    margin : 10px ;
+    padding :10px;
+}
+
+.highligts {
+    background-color: aquamarine ;
+
+}
+button:hover {
+    background-color: red;
+}

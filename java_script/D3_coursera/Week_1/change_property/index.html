@@ -1,0 +1,78 @@
+<html>
+
+<head>
+    <style>
+        button {
+            display: block;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img id="animalImg" src="dog.jpeg" width="200px" />
+    </div>
+
+    <div id="text" style="font-size:40px">This is an animal.</div>
+
+    <div>
+        <button onclick="change('cat.jpeg')">Show Cat</button>
+        <button onclick="change('dog.jpeg')">Show Dog</button>
+        <button onclick="changeColor()">Change Color</button>
+    </div>
+</body>
+<script src="d3.js"></script>
+<script>
+    
+    function change(imgName) {
+        d3.select('#animalImg').attr("src",imgName)
+       
+    }
+
+    function changeColor() {
+        let current_color = d3.select('#text').style('color')
+        if (current_color === "red"){
+            d3.select('#text').style('color',"blue")
+        }
+        else {
+            d3.select('#text').style('color',"red") 
+        }
+
+
+    }
+
+
+    let cars = [ 
+    {name:"Toyota", price: 50000}, 
+    {name:"BMW", price:75000},                 
+    {name:"Tesla", price: 60000}, 
+    {name:"Jeep", price: 35000}
+  ];
+  let i;
+  for(i=0; i<cars.length; i++)    {  
+    console.log(cars[i].name);  
+  }
+  
+  console.log(i)
+</script>
+<head>
+    <style>
+      li {
+        color: blue;
+      }
+      .even {
+        color: red;
+      }
+     
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li style="color:red">First</li>
+      <li class="even">Second</li>
+      <li> Third </li>
+      <li id="even">Fourth</li>
+    </ul>
+  </body>
+</html>

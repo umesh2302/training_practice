@@ -1,0 +1,61 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <div id="container"></div>
+</body>
+<script src="d3.js"></script>
+<script>
+    const KG_PER_POUND = 0.45
+    const METER_PER_INCH = 0.0254
+
+    let container = d3.select("#container")
+    d3.csv("data.csv").then(dataLoaded)
+
+    function dataLoaded(clients) {
+        clients = clients.map(d => {
+            d.BMI = getBMI(d)
+            return d
+        })
+        showData(clients)
+    }
+    function showData(clients) {
+        for (let client of clients) {
+            write(client.Name 
+            + ", " 
+            + client.BMI)
+        }
+        write ("----------")
+        let sum = clients.reduce(function(prev, curr)
+         {return prev+curr.BMI },4)
+        let mean = sum/clients.length
+        write("mean: " + mean)
+        write ("....using d3.....")
+        let weightSum = d3.sum(clients, (d)=> d.Weight)
+        write ("Sum :"  + weightSum )
+        let weightMean = d3.mean(clients, (d)=> d.Weight);
+        write ("Mean :"  + weightMean )
+        let weightExtent = d3.extent(clients,(d)=> d.Weight);
+        write("extent :" + weightExtent[1])
+
+        
+    }
+
+    function write(text) {
+        container.append("div").text(text)
+    }
+
+    function getBMI(client) {
+        let weightInKg = client.Weight * KG_PER_POUND
+        let heightInMeter = client.Height * METER_PER_INCH
+        let BMI = weightInKg / heightInMeter / heightInMeter
+        return BMI
+    }
+
+
+</script>
+
+</html>

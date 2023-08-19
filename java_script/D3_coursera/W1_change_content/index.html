@@ -4,7 +4,8 @@
 
 <body>
     <p class="main-paragraph">This is an example</p>
-    <p>And this is the second paragraph</p>
+    <p>And this is the test paragraph</p>
+    <p2>And this is the second paragraph</p2>
     <button onclick="change1()">Change First Paragraph</button>
     <button onclick="change2()">Change all paragraphs</button>
     <button onclick="change3()">Change with HTML</button>
@@ -13,18 +14,19 @@
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
     function change1() {
+        d3.select('.main-paragraph').text("changed it")
         
     }
 
     function change2() {
-        
+        d3.selectAll ('p').text("all changed")
     }
 
     function change3() {
-        
+        d3.select('p2').html('<b>Bold</b> text' )
     }
     function change4() {
-        
+        d3.select('p2').text('<b>Bold</b> text' )
     }
 </script>
 

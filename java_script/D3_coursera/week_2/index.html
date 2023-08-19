@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <link rel="shortcut icon" href="#" />
+</head>
+
+<body>
+    <div id="container"></div>
+</body>
+<script src="d3.js"></script>
+<script>
+    let container = d3.select("#container")
+    d3.csv("data.csv").then(function(data){
+        showData(data)
+        data.sort((a,b)=> {
+            return d3.ascending(a.Name, b.Name)
+            
+        })
+        write("------")
+        showData(data)
+
+        let data_1 = data.filter(d=> {
+            return d.Weight < 200
+        })
+        write("------")
+        showData(data_1)
+        }
+    )
+    function write(text) {
+        container.append("div").text(text)
+    }
+    function showData(clients) {
+        for (let client of clients ){
+            write(client.Name + " ," 
+            + client.Weight)
+        }
+    }
+    write("text is working")
+</script>
+
+</html>

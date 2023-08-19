@@ -1,0 +1,50 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <button onclick="addNewClient()">Add</button>
+    <button onclick="removeClient()">Remove</button>
+    <div id="container"></div>
+</body>
+<script src="d3.js"></script>
+<script>
+    let container = d3.select("#container")
+    let clients = [{
+        Name: "Client0",
+        Age : 31
+    }]
+    let count = 1;
+
+
+    function addNewClient() {
+        clients.push({ Name: "Client" + count ,
+    Age : count+1})
+        count += 1
+        showData(clients)
+    }
+
+    function removeClient() {
+        clients = clients.slice(0, -1)
+        count -= 1
+        showData(clients)
+    }
+
+    function showData(clients) {
+        let join = container
+                .selectAll('div')
+                .data(clients)
+            join.enter()
+            .append('div')
+            .text(d => d.Name + "-New" + " " + d.Age)
+            join.exit().remove()
+            join.text(d=> d.Name + ":Updated" + " "+ d.Age)
+    }
+    showData(clients)
+
+
+</script>
+
+</html>
